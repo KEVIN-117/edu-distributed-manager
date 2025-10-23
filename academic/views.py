@@ -14,7 +14,6 @@ def create_user_profile(request):
         'title': title,
         "style_css": static("css/globals.css"),
     }
-    form = UserProfileForm
     if request.method == 'POST':
         form = UserProfileForm(request.POST, request.FILES)
         if form.is_valid():
@@ -24,6 +23,7 @@ def create_user_profile(request):
             # redirect to a form success page or render a success message
             return render(request, 'academic/success.html', context)
     else:
+        context['heading'] = "Create a New User Profile"
         form = UserProfileForm()
-    context["form"] = form
+        context["form"] = form
     return render(request, 'academic/create_user_profile.html', context)

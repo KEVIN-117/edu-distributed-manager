@@ -14,10 +14,7 @@ def run_celery():
 
     cmd = ["celery", "-A", PROJECT_NAME, "worker", "-l", "info"]
 
-    if system == "windows":
-        cmd += ["--pool=solo"]
-    else:
-        cmd += ["--pool=prefork"]
+    cmd += ["--pool=threads"] if system == "darwin" else ["--pool=prefork"]
     print(f'Running Celery with command: {" ".join(cmd)}')
     subprocess.call(cmd)
 
