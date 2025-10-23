@@ -19,4 +19,3 @@ class UserProfile(models.Model):
 
     def __str__(self):
         return f"UserProfile for user {self.user_id}"
-    
