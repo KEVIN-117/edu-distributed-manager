@@ -40,7 +40,11 @@ INSTALLED_APPS = [
     'django.contrib.messages',
     'django.contrib.staticfiles',
     'django_celery_results',
-    'academic'
+    # CMSD Modules
+    'academic',
+    'auth_service',
+    'notification',
+    'reporting'
 ]
 
 MIDDLEWARE = [
